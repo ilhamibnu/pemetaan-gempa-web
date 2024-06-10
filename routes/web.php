@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GempaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\User\LandingController;
 use App\Http\Controllers\VisualisasiGempaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,8 @@ Route::delete('/gempa/{id}', [GempaController::class, 'destroy'])->middleware('I
 
 # Visualisasi Gempa Controller
 Route::get('/visualisasi-gempa', [VisualisasiGempaController::class, 'index'])->middleware('IsLogin');
+
+# Landing
+Route::get('/', [LandingController::class, 'index']);
+Route::get('/detail/{id}', [LandingController::class, 'detail']);
+
