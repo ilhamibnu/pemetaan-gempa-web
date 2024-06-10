@@ -22,11 +22,14 @@ class GempaController extends Controller
             'tanggal' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
+            'radius' => 'required',
+
         ], [
             'nama.required' => 'Nama gempa harus diisi.',
             'tanggal.required' => 'Tanggal harus diisi.',
             'latitude.required' => 'Latitude harus diisi.',
             'longitude.required' => 'Longitude harus diisi.',
+            'radius.required' => 'Radius harus diisi.',
 
         ]);
 
@@ -35,6 +38,7 @@ class GempaController extends Controller
         $gempa->tanggal = $request->tanggal;
         $gempa->latitude = $request->latitude;
         $gempa->longitude = $request->longitude;
+        $gempa->radius = $request->radius;
         $gempa->save();
 
         return redirect('/gempa')->with('store', 'Data berhasil ditambahkan.');
@@ -48,11 +52,15 @@ class GempaController extends Controller
             'tanggal' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
+            'longitude' => 'required',
+            'radius' => 'required',
+
         ], [
             'nama.required' => 'Nama gempa harus diisi.',
             'tanggal.required' => 'Tanggal harus diisi.',
             'latitude.required' => 'Latitude harus diisi.',
             'longitude.required' => 'Longitude harus diisi.',
+            'radius.required' => 'Radius harus diisi.',
 
         ]);
 
@@ -61,6 +69,7 @@ class GempaController extends Controller
         $gempa->tanggal = $request->tanggal;
         $gempa->latitude = $request->latitude;
         $gempa->longitude = $request->longitude;
+        $gempa->radius = $request->radius;
         $gempa->save();
 
         return redirect('/gempa')->with('update', 'Data berhasil diubah.');

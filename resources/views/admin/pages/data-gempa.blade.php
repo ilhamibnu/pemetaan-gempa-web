@@ -42,6 +42,7 @@
                                     <th>Tanggal</th>
                                     <th>Latitude</th>
                                     <th>Longitude</th>
+                                    <th>Radius</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -53,6 +54,7 @@
                                     <td>{{ $data->tanggal }}</td>
                                     <td>{{ $data->latitude }}</td>
                                     <td>{{ $data->longitude }}</td>
+                                    <td>{{ $data->radius }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#Edit{{ $data->id }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
@@ -185,6 +187,12 @@
                                 <input id="long" type="text" name="longitude" class="form-control">
                             </div>
                         </div>
+                        <div class="row">
+                       <div class="form-group">
+                       <label>Radius (km)</label>
+                       <input type="number" name="radius" class="form-control" required>
+                       </div>
+                       </div>
 
                         <div class="map2">
                             <div id="map2"></div>
@@ -246,7 +254,7 @@
                     maxZoom: 19
                 }).addTo(map{{ $data->id }});
 
-                marker{{ $data->id }} = L.marker([{{ $data->latitude }}, {{ $data->longitude }}], {draggable: true}).addTo(map{{ $data->id }});
+                marker{{ $data->id }} = L.circleMarker([{{ $data->latitude }}, {{ $data->longitude }}], {draggable: true}).addTo(map{{ $data->id }});
 
                 map{{ $data->id }}.on('click', function(e) {
                     var lat = e.latlng.lat;
@@ -276,13 +284,13 @@
 
 
 <script>
-    // Inisialisasi peta indonesia
+    
     var mymap = L.map('map2').setView([-7.276, 112.791], 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19
     }).addTo(mymap);
 
-    var marker = L.marker([-7.276, 112.791]).addTo(mymap);
+    var marker = L.circleMarker([-7.276, 112.791]).addTo(mymap);
 
     mymap.on('click', function(e) {
         var lat = e.latlng.lat;

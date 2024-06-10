@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tanggal');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('radius');
             $table->timestamps();
         });
     }

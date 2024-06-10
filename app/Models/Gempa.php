@@ -16,5 +16,6 @@ class Gempa extends Model
         'tanggal',
         'latitude',
         'longitude',
+        'radius',
     ];
 }

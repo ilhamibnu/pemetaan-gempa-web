@@ -479,9 +479,15 @@
     var data = @json($data);
 
     data.forEach(function(gempa) {
-        var marker = L.marker([gempa.latitude, gempa.longitude]).addTo(map);
-        marker.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + gempa.latitude + "<br>Longitude: " + gempa.longitude + "<br> <a href='/detail/" + gempa.id + "'>Detail</a>");
-    });
+        var circle = L.circleMarker([gempa.latitude, gempa.longitude], {
+            radius: gempa.radius, // Adjust the size of the circle as needed
+            color: '#ff0000', // Outline color
+            fillColor: '#ff0000', // Fill color
+            fillOpacity: 0.5 // Opacity of the fill color
+        }).addTo(map);
 
+        circle.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + gempa.latitude + "<br>Longitude: " + gempa.longitude + "<br> <a href='/detail/" + gempa.id + "'>Detail</a>");
+    });
 </script>
+
 @endsection
