@@ -6,7 +6,7 @@
     <!--HEAD START-->
 
     <!--TITLE-->
-    <title>nCovid</title>
+    <title>Earthquake Indonesia</title>
 
     <!--::::: SUPPORT META :::::::-->
     <meta charset="utf-8">
@@ -41,7 +41,7 @@
     <!--PRELAODER START-->
     <div class="preloader v2">
         <div class="preloader__container">
-            <img src="{{ asset('user/assets/img/icon/preloader2.png') }}" alt="">
+            <img src="{{ asset('user/assets/img/icon/bumi.png') }}" alt="">
         </div>
     </div>
     <!--PRELAODER END-->

@@ -45,39 +45,25 @@
                         <div class="single__contact__icon">
                             <img src="{{ asset('user/assets/img/icon/phone__white.png') }}" alt="">
                         </div>
-                        <a href="tell:+880-2-9898796">+880-2-9898796</a>
-                        <a href="tell:+880-2-9898796">+880-2-9880440</a>
+                        <a href="tell:+880-2-9898796">08888888888</a>
                     </div>
                     <div class="single__contact">
                         <div class="single__contact__icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <p>Institute of Epidemiology, Disease Control & Research (IEDCR) Mohakhali, Dhaka-1212</p>
+                        <p>Jember jl jember dll</p>
                     </div>
                     <div class="single__contact">
                         <div class="single__contact__icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <a href="mailto:director@iedcr.gov.bd">director@iedcr.gov.bd</a>
-                        <a href="mailto:director@iedcr.gov.bd">iedcrit@gmail.com</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer__seperator"></div>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 align-self-center">
-                    <p>&copy; 2020 Ncov Ltd. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-right align-self-center">
-                    <a href="#">Help Desk 16247</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <img class="footer_shape  footer_shapes2" src="{{ asset('user/assets/img/shape/shape__white1.png') }}" alt="">
     <img class="footer_shape  footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
     <img class="footer_shape  footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
