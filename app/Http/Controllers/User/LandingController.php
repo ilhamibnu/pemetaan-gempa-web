@@ -10,9 +10,13 @@ class LandingController extends Controller
 {
     public function index()
     {
+        $totalgempa = Gempa::count();
+        $totalmati = Gempa::sum('korban');
         $data = Gempa::all();
         return view('user.pages.index', [
-            'data' => $data
+            'data' => $data,
+            'totalgempa' => $totalgempa,
+            'totalmati' => $totalmati
         ]);
     }
 
@@ -24,3 +28,4 @@ class LandingController extends Controller
         ]);
     }
 }
+

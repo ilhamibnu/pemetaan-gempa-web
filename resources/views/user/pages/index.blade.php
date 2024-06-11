@@ -61,7 +61,6 @@
 
 
 <!--::::: STATISTIK AREA START :::::::-->
-<!--::::: COUNTER AREA START :::::::-->
 <div class="counter__area counter2" id="statistik">
     <div class="container">
         <div class="row">
@@ -71,37 +70,35 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3 text-center">
                                 <div class="single__counter wow fadeInUp" data-wow-delay=".3s">
-                                    <h2 class="counter">204</h2>
-                                    <p>Affected Country</p>
+                                    
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3 text-center">
                                 <div class="single__counter wow fadeInUp" data-wow-delay=".5s">
-                                    <h2 class="counter">1,098,848</h2>
-                                    <p>Confirmed Cases</p>
+                                    <h2 class="counter">{{ $totalgempa}}</h2>
+                                    <p>Totals Earthquake</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3 text-center">
                                 <div class="single__counter ctype2 wow fadeInUp" data-wow-delay=".7s">
-                                    <h2 class="counter">226,106</h2>
-                                    <p>Recovered Cases</p>
+                                    <h2 class="counter">{{ $totalmati }}</h2>
+                                    <p>Human Deaths</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-3 text-center">
                                 <div class="single__counter no__border wow fadeInUp" data-wow-delay=".9s">
-                                    <h2 class="counter">58,871</h2>
-                                    <p>Worldwide Deaths</p>
+                                   
                                 </div>
                             </div>
                             <div class="col-12 text-center wow fadeInUp" data-wow-delay="1s">
                                 <div class="space-30"></div>
-                                <h6 class="emergency">*** Updated less than 20 mins ago, Source: <a href="#">Wikipedia</a></h6>
+                                <h6 class="emergency">*** Updated less than 20 mins ago, Source: <a href="https://www.bmkg.go.id/">BMKG</a></h6>
                             </div>
                         </div>
                         <img src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="" class="counter__bg counter__bg1">
                         <img src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="" class="counter__bg counter__bg2">
                     </div>
-
+                 
                 </div>
             </div>
         </div>
@@ -132,7 +129,7 @@
                         <h2>What is an Earthquake?</h2>
                         <h4>An earthquake is the shaking of the surface of the Earth resulting from a sudden release of energy in the Earth's lithosphere that creates seismic waves. Earthquakes can range in size from those that are so weak that they cannot be felt to those violent enough to propel objects and people into the air, and wreak destruction across entire cities. <br> <br> You can protect yourself by identifying safe places in each room of your home, practicing "Drop, Cover, and Hold On" drills, and securing heavy items to walls and floors to prevent them from falling during a quake.</h4>
                         <div class="space-30"></div>
-                        <a href="#" class="cbtn btn2">Learn More</a>
+                        <a href="https://en.wikipedia.org/wiki/Earthquake" class="cbtn btn2">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -199,21 +196,20 @@
     var data = @json($data);
 
     data.forEach(function(gempa) {
-        // Ensure latitude, longitude, and radius are valid numbers
         var latitude = parseFloat(gempa.latitude);
         var longitude = parseFloat(gempa.longitude);
-        var radius = parseFloat(gempa.radius) * 1000; // Convert km to meters
+        var radius = parseFloat(gempa.radius) * 1000; 
 
         if (isNaN(latitude) || isNaN(longitude) || isNaN(radius)) {
             console.error("Invalid data for gempa:", gempa);
-            return; // Skip this gempa if any value is not a number
+            return; 
         }
 
         var circle = L.circle([latitude, longitude], {
             radius: radius
-            , color: '#ff0000', // Outline color
-            fillColor: '#ff0000', // Fill color
-            fillOpacity: 0.5 // Opacity of the fill color
+            , color: '#ff0000', 
+            fillColor: '#ff0000', 
+            fillOpacity: 0.5
         }).addTo(map);
 
         circle.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + gempa.latitude + "<br>Longitude: " + gempa.longitude + "<br> <a href='/detail/" + gempa.id + "'>Detail</a>");
@@ -222,3 +218,5 @@
 </script>
 
 @endsection
+
+

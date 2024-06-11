@@ -2,16 +2,10 @@
     <div class="container">
         <div class="row jusify-content-center">
             <div class="col-md-6 col-lg-3">
-                <a href="index-2.html" class="footer__logo"><img src="{{ asset('user/assets/img/logo/logo3.png') }}" alt=""></a>
+                <a href="#" class="footer__logo"><img src="{{ asset('user/assets/img/logo/logo3.png') }}" alt=""></a>
                 <div class="footer__dsec">
-                    <p>Coronavirus disease (COVID-19) is an infectious disease caused by a new virus. The disease causes.</p>
+                    <p>Earthquakes are the shaking of the Earth's surface caused by a sudden release of energy in the Earth's crust. They can cause significant damage and pose serious hazards to human life and property.</p>
                 </div>
-
-                <ul class="footer-social dinline">
-                    <li><a class="active" href="#"><i class="fab fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                </ul>
 
             </div>
             <div class="col-md-6 col-lg-2">
@@ -19,22 +13,20 @@
                     <h3>About Us</h3>
                     <ul>
                         <li><a href="#">Home</a></li>
+                        <li><a href="#">Statistics</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Service</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">News Feeds</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="single__footer ml-lg-5">
-                    <h3>Usefull Links</h3>
+                    <h3>Useful Links</h3>
                     <ul>
-                        <li><a href="#">WHO Information</a></li>
-                        <li><a href="#">Covid-19 Wikipedia</a></li>
-                        <li><a href="#">Service</a></li>
-                        <li><a href="#">CNN News</a></li>
-                        <li><a href="#">Worldometer Info</a></li>
+                        <li><a href="https://www.bmkg.go.id/">BMKG Earthquake Information</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Earthquake">Earthquake Wikipedia</a></li>
+                        <li><a href="https://www.bmkg.go.id/profil/?p=kontak-kami">BMKG Emergency Services</a></li>
+                        <li><a href="https://www.cnnindonesia.com/">CNN News</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,27 +37,28 @@
                         <div class="single__contact__icon">
                             <img src="{{ asset('user/assets/img/icon/phone__white.png') }}" alt="">
                         </div>
-                        <a href="tell:+880-2-9898796">08888888888</a>
+                        <a href="tell:+888888888">08888888888</a>
                     </div>
                     <div class="single__contact">
                         <div class="single__contact__icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <p>Jember jl jember dll</p>
+                        <p>Jember, JL Jember, etc.</p>
                     </div>
                     <div class="single__contact">
                         <div class="single__contact__icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <a href="mailto:director@iedcr.gov.bd">director@iedcr.gov.bd</a>
+                        <a href="mailto:intananjay@gmail.com">intananjay@gmail.com</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <img class="footer_shape  footer_shapes2" src="{{ asset('user/assets/img/shape/shape__white1.png') }}" alt="">
-    <img class="footer_shape  footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
-    <img class="footer_shape  footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
-    <img class="footer_shape  footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
+    <img class="footer_shape footer_shapes2" src="{{ asset('user/assets/img/shape/shape__white1.png') }}" alt="">
+    <img class="footer_shape footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
+    <img class="footer_shape footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
+    <img class="footer_shape footer_shapes3" src="{{ asset('user/assets/img/shape/shape__white2.png') }}" alt="">
 </div>
+

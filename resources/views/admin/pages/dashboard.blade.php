@@ -5,160 +5,110 @@
 @section('title-bar', 'Dashboard')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xl-6 col-xxl-12">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card avtivity-card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body">
-                                    <p class="fs-14 mb-2">Jumlah Gempa</p>
-                                    <span class="title text-black font-w600">{{ $jumlah_gempa }}</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-xxl-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card avtivity-card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <p class="fs-14 mb-2">Total Earthquake</p>
+                                        <span class="title text-black font-w600">{{ $jumlah_gempa }}</span>
+                                    </div>
+                                </div>
+                                <div class="progress" style="height:5px;">
+                                    <div class="progress-bar bg-success" style="width: 42%; height:5px;" aria-label="Progess-success" role="progressbar">
+                                        <span class="sr-only">42% Complete</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="progress" style="height:5px;">
-                                <div class="progress-bar bg-success" style="width: 42%; height:5px;" aria-label="Progess-success" role="progressbar">
-                                    <span class="sr-only">42% Complete</span>
-                                </div>
-                            </div>
+                            <div class="effect bg-success"></div>
                         </div>
-                        <div class="effect bg-success"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card avtivity-card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <div class="media-body">
+                                        <p class="fs-14 mb-2">Total Deaths</p>
+                                        <span class="title text-black font-w600">{{ $totalmati }}</span>
+                                    </div>
+                                </div>
+                                <div class="progress" style="height:5px;">
+                                    <div class="progress-bar bg-success" style="width: 42%; height:5px;" aria-label="Progess-success" role="progressbar">
+                                        <span class="sr-only">42% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="effect bg-success"></div>
+                        </div>
                     </div>
                 </div>
-                {{-- <div class="col-sm-6">
-                    <div class="card avtivity-card">
-                        <div class="card-body">
-                            <div class="media align-items-center">
-                                <div class="media-body">
-                                    <p class="fs-14 mb-2">Jumlah Kriteria</p>
-                                    <span class="title text-black font-w600">{{ $kriteria }}</span>
             </div>
-        </div>
-        <div class="progress" style="height:5px;">
-            <div class="progress-bar bg-secondary" style="width: 82%; height:5px;" aria-label="Progess-secondary" role="progressbar">
-                <span class="sr-only">42% Complete</span>
+            <div class="col-xl-6 col-xxl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="myLineChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="effect bg-secondary"></div>
-</div>
-</div>
-<div class="col-sm-6">
-    <div class="card avtivity-card">
-        <div class="card-body">
-            <div class="media align-items-center">
-                <div class="media-body">
-                    <p class="fs-14 mb-2">Jumlah Siswa</p>
-                    <span class="title text-black font-w600">{{ $siswa }}</span>
-                </div>
-            </div>
-            <div class="progress" style="height:5px;">
-                <div class="progress-bar bg-danger" style="width: 90%; height:5px;" aria-label="Progess-danger" role="progressbar">
-                    <span class="sr-only">42% Complete</span>
-                </div>
-            </div>
-        </div>
-        <div class="effect bg-danger"></div>
-    </div>
-</div>
-<div class="col-sm-6">
-    <div class="card avtivity-card">
-        <div class="card-body">
-            <div class="media align-items-center">
-                <div class="media-body">
-                    <p class="fs-14 mb-2">Jumlah User</p>
-                    <span class="title text-black font-w600">{{ $user }}</span>
-                </div>
-            </div>
-            <div class="progress" style="height:5px;">
-                <div class="progress-bar bg-warning" style="width: 42%; height:5px;" role="progressbar">
-                    <span class="sr-only">42% Complete</span>
-                </div>
-            </div>
-        </div>
-        <div class="effect bg-warning"></div>
-    </div>
-</div> --}}
-
-
-</div>
-</div>
-</div>
-</div>
 @endsection
 
 @section('script')
-@if(Session::get('login'))
-<script>
-    toastr.success("Login Berhasil", "Info", {
-        timeOut: 5000
-        , closeButton: !0
-        , debug: !1
-        , newestOnTop: !0
-        , progressBar: !0
-        , positionClass: "toast-top-right"
-        , preventDuplicates: !0
-        , onclick: null
-        , showDuration: "300"
-        , hideDuration: "1000"
-        , extendedTimeOut: "1000"
-        , showEasing: "swing"
-        , hideEasing: "linear"
-        , showMethod: "fadeIn"
-        , hideMethod: "fadeOut"
-        , tapToDismiss: !1
-    })
+    @parent
 
-</script>
-@endif
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var labels = @json($labels);
+            var dataMati = @json($dataMati);
 
-@if(Session::get('updateprofil'))
-<script>
-    toastr.success("Profil Berhasil Diubah", "Info", {
-        timeOut: 5000
-        , closeButton: !0
-        , debug: !1
-        , newestOnTop: !0
-        , progressBar: !0
-        , positionClass: "toast-top-right"
-        , preventDuplicates: !0
-        , onclick: null
-        , showDuration: "300"
-        , hideDuration: "1000"
-        , extendedTimeOut: "1000"
-        , showEasing: "swing"
-        , hideEasing: "linear"
-        , showMethod: "fadeIn"
-        , hideMethod: "fadeOut"
-        , tapToDismiss: !1
-    })
+            var ctx = document.getElementById('myLineChart').getContext('2d');
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Deaths',
+                        data: dataMati,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+    scales: {
+        xAxes: [{
+            type: 'time',
+            time: {
+                unit: 'day',
+                displayFormats: {
+                    day: 'MMM D'
+                },
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'Date'
+            }
+        }],
+        yAxes: [{
+            ticks: {
+                beginAtZero: true,
+                callback: function(value) { return value; }
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'Number of Deaths'
+            }
+        }]
+    }
+}
 
-</script>
-@endif
-
-@if(Session::get('error'))
-<script>
-    toastr.error("Profil Gagal Diubah", "Info", {
-        timeOut: 5000
-        , closeButton: !0
-        , debug: !1
-        , newestOnTop: !0
-        , progressBar: !0
-        , positionClass: "toast-top-right"
-        , preventDuplicates: !0
-        , onclick: null
-        , showDuration: "300"
-        , hideDuration: "1000"
-        , extendedTimeOut: "1000"
-        , showEasing: "swing"
-        , hideEasing: "linear"
-        , showMethod: "fadeIn"
-        , hideMethod: "fadeOut"
-        , tapToDismiss: !1
-    })
-
-</script>
-@endif
+            });
+        });
+    </script>
 @endsection

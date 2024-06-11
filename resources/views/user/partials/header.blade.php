@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 col-md-5 col-xl-3 align-self-center">
-                <a href="index-2.html" class="logo"><img src="{{ asset('user/assets/img/logo/logo3.png') }}" alt=""></a>
+                <a href="#" class="logo"><img src="{{ asset('user/assets/img/logo/logo3.png') }}" alt=""></a>
             </div>
             <div class="col-6 col-md-7 col-xl-6 text-center align-self-center">
                 <div class="main__menu">

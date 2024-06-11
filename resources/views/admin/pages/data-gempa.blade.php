@@ -43,6 +43,7 @@
                                     <th>Latitude</th>
                                     <th>Longitude</th>
                                     <th>Radius</th>
+                                    <th>Korban</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -55,6 +56,7 @@
                                     <td>{{ $data->latitude }}</td>
                                     <td>{{ $data->longitude }}</td>
                                     <td>{{ $data->radius }} KM</td>
+                                    <td>{{ $data->korban }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#Edit{{ $data->id }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
@@ -100,6 +102,18 @@
                                                         <div class="form-group">
                                                             <label>Longitude</label>
                                                             <input id="long{{ $data->id }}" type="text" value="{{ $data->longitude }}" name="longitude" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label>Radius</label>
+                                                            <input id="long{{ $data->id }}" type="text" value="{{ $data->radius }}" name="radius" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label>Korban</label>
+                                                            <input id="long{{ $data->id }}" type="text" value="{{ $data->korban }}" name="korban" class="form-control">
                                                         </div>
                                                     </div>
 
@@ -191,6 +205,12 @@
                        <div class="form-group">
                        <label>Radius (km)</label>
                        <input type="number" name="radius" class="form-control" required>
+                       </div>
+                       </div>
+                       <div class="row">
+                       <div class="form-group">
+                       <label>Korban</label>
+                       <input type="number" name="korban" class="form-control" required>
                        </div>
                        </div>
 
