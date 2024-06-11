@@ -479,15 +479,26 @@
     var data = @json($data);
 
     data.forEach(function(gempa) {
-        var circle = L.circleMarker([gempa.latitude, gempa.longitude], {
-            radius: gempa.radius, // Adjust the size of the circle as needed
-            color: '#ff0000', // Outline color
+        // Ensure latitude, longitude, and radius are valid numbers
+        var latitude = parseFloat(gempa.latitude);
+        var longitude = parseFloat(gempa.longitude);
+        var radius = parseFloat(gempa.radius) * 1000; // Convert km to meters
+
+        if (isNaN(latitude) || isNaN(longitude) || isNaN(radius)) {
+            console.error("Invalid data for gempa:", gempa);
+            return; // Skip this gempa if any value is not a number
+        }
+
+        var circle = L.circle([latitude, longitude], {
+            radius: radius
+            , color: '#ff0000', // Outline color
             fillColor: '#ff0000', // Fill color
             fillOpacity: 0.5 // Opacity of the fill color
         }).addTo(map);
 
         circle.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + gempa.latitude + "<br>Longitude: " + gempa.longitude + "<br> <a href='/detail/" + gempa.id + "'>Detail</a>");
     });
+
 </script>
 
 @endsection

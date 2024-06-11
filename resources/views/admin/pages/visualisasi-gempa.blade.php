@@ -35,17 +35,35 @@
     var map = L.map('maps').setView([-0.789275, 113.921327], 5);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        maxZoom: 18
+        , attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
             '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
     }).addTo(map);
 
     var data = @json($data);
 
     data.forEach(function(gempa) {
-        var marker = L.marker([gempa.latitude, gempa.longitude]).addTo(map);
-        marker.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + gempa.latitude + "<br>Longitude: " + gempa.longitude);
+        // Ensure latitude, longitude, and radius are valid numbers
+        var latitude = parseFloat(gempa.latitude);
+        var longitude = parseFloat(gempa.longitude);
+        var radius = parseFloat(gempa.radius) * 1000; // Convert km to meters
+
+        if (isNaN(latitude) || isNaN(longitude) || isNaN(radius)) {
+            console.error("Invalid data for gempa:", gempa);
+            return; // Skip this gempa if any value is not a number
+        }
+
+        var circle = L.circle([latitude, longitude], {
+            radius: radius
+            , color: '#ff0000', // Outline color
+            fillColor: '#ff0000', // Fill color
+            fillOpacity: 0.5 // Opacity of the fill color
+        }).addTo(map);
+
+        // Bind popup to the circle
+        circle.bindPopup("<b>" + gempa.nama + "</b><br>" + gempa.tanggal + "<br>Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>Radius: " + radius + " m");
     });
+
 </script>
 
 @if(Session::get('store'))

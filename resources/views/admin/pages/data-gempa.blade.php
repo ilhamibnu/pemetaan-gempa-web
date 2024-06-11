@@ -54,7 +54,7 @@
                                     <td>{{ $data->tanggal }}</td>
                                     <td>{{ $data->latitude }}</td>
                                     <td>{{ $data->longitude }}</td>
-                                    <td>{{ $data->radius }}</td>
+                                    <td>{{ $data->radius }} KM</td>
                                     <td>
                                         <div class="d-flex">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#Edit{{ $data->id }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pencil"></i></a>
@@ -284,7 +284,7 @@
 
 
 <script>
-    
+
     var mymap = L.map('map2').setView([-7.276, 112.791], 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19

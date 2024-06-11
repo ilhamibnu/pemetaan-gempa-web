@@ -92,8 +92,27 @@
 
                             var data = @json($data);
 
-                            var marker = L.marker([data.latitude, data.longitude]).addTo(map);
-                            marker.bindPopup("<b>" + data.nama + "</b><br>" + data.tanggal + "<br>Latitude: " + data.latitude + "<br>Longitude: " + data.longitude);
+                            // data.forEach(function(gempa) {
+                            // Ensure latitude, longitude, and radius are valid numbers
+                            var latitude = parseFloat(data.latitude);
+                            var longitude = parseFloat(data.longitude);
+                            var radius = parseFloat(data.radius) * 1000; // Convert km to meters
+
+                            // if (isNaN(latitude) || isNaN(longitude) || isNaN(radius)) {
+                            //     console.error("Invalid data for gempa:", gempa);
+                            //     return; // Skip this gempa if any value is not a number
+                            // }
+
+                            var circle = L.circle([latitude, longitude], {
+                                radius: radius
+                                , color: '#ff0000', // Outline color
+                                fillColor: '#ff0000', // Fill color
+                                fillOpacity: 0.5 // Opacity of the fill color
+                            }).addTo(map);
+
+                            // Bind popup to the circle
+                            circle.bindPopup("<b>" + data.nama + "</b><br>" + data.tanggal + "<br>Latitude: " + latitude + "<br>Longitude: " + longitude + "<br>Radius: " + radius + " m");
+                            // });
 
                         </script>
                         <div class="single-blog-section-description blog-box">
